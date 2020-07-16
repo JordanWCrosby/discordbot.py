@@ -43,10 +43,8 @@ async def rolls(ctx):
             description = "Your Embed description",
             colour = discord.Colour.green()
         )
-    embed.set_author(name="ROLES HERE, GET YOUR ROLES:", icon_url='https://cdn.discordapp.com/attachments/732933689901711481/732960583464517683/419_REpWIExBVSAzMDUtOTE.jpg')
-    embed.add_field(name="To Add Minecraft Role:", value="react with <:minecraft:732946372759650435> to add the minecraft role", inline=False)
-    embed.add_field(name="To Add Switch Role:", value="react with <:switch:732946283026972813> to add the switch role", inline=False)
-    embed.add_field(name="To Add Animal Crossing Role:", value="react with <:animalcrossing:732946235258044530> to add the animalcrossing role", inline=False)
+    embed.set_author(name="ROLES HERE, GET YOUR ROLES:", icon_url='path to your image')
+    embed.add_field(name="name goes here", value="description goes here", inline=False)
     await channel.send(embed=embed)
 #error handler for someone trying to use this command without permissions    
 @rolls.error
@@ -61,11 +59,10 @@ async def h(ctx):
             description = "Your Embed description",
             colour = discord.Colour.green()
         )
-    embed.add_field(name="Add roles:", value="Visit the channel #role-assign and react with the appropriate emote", inline=False)
-    embed.add_field(name="Commands:", value="COMMAND LIST", inline=False)
-    embed.add_field(name="!h", value="that's how you access this that you're reading right now!", inline=False)
-    embed.add_field(name="!d20", value="rolls a twenty sided die", inline=False)
-    embed.add_field(name="!coin", value="millybot tosses a coin", inline=False)
+    embed.add_field(name="name goes here", value="description goes here", inline=False)
+    embed.add_field(name="name goes here", value="description goes here", inline=False)
+    embed.add_field(name="name goes here", value="description goes here", inline=False)
+    embed.add_field(name="name goes here", value="description goes here", inline=False)
 
     await ctx.send(embed=embed)
 
