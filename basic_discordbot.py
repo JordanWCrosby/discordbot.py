@@ -129,6 +129,41 @@ async def on_raw_reaction_remove(payload):
     #if filename.endswith('.py'):
      #   client.load_extension(f'cogs.{filename[:-3]}')
 
+@client.command()
+@commands.has_role('minecraft')
+async def getcoords(ctx,*, c): 
+    with open('coords.json', 'r') as fp:
+        coords = json.load(fp)
+    for v in coords.items():
+        if c in coords:
+            await ctx.send(coords[c])
+            break
+        else:
+            await ctx.send("There is no coordinate named {}".format(c))
 
+@client.command()
+@commands.has_role('minecraft')
+async def addcoords(ctx, i, *, x):
+    with open('coords.json', 'r') as fp:
+        coords = json.load(fp)
+    if i in coords.keys():
+        await ctx.send("that location already has coordinates")
+    else:
+        coords.update({i : x})
+        await ctx.send("{} coordinates of {} added".format(i, x))
+        with open('coords.json', 'w') as fp:
+            json.dump(coords, fp)
+
+@addcoords.error
+async def roll_error(ctx, error):
+    if isinstance(error, discord.ext.commands.errors.MissingRole):
+        await ctx.send('You do not have permissions to use this command, please acquire the minecraft role.')
+
+@getcoords.error
+async def roll_error(ctx, error):
+    if isinstance(error, discord.ext.commands.errors.MissingRole):
+        await ctx.send('You do not have permissions to use this command, please acquire the minecraft role')
+
+      
 #this is where you put your API call generated at discord.com
 client.run('TOKEN GOES HERE')
